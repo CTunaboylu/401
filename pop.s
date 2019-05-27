@@ -1,0 +1,12 @@
+.globl pop
+pop:
+	LDUR X11,[X0]
+	LDUR X5,[X11,#4]
+	LDUR X3,[X11]
+	LDUR X10,[X3]
+	ADD X0,XZR,X10
+	ADD X3,X3,#4
+	STUR X3,[X11]
+	BR X30
+
+

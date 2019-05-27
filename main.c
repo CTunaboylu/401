@@ -1,28 +1,20 @@
 #include <stdio.h>
-extern long long int hash(long long int item, long long int b)
+extern int* hash(int item, int size)
 
-long long int table_size(){
-	long long int pot_size = rand() % pow(2,13);
-	bool is_prime = false;
-	while(!is_prime){
-    	is_prime = true;
-    	for (i = 2; i <= sqrt(pot_size) / 2; i++) { 
-          if (n % i == 0) { 
-			is_prime = false; 
-            } 
-            if(is_prime&&i==sqrt(pot_size)){
-            	std::cout<<"Number is prime: "<<pot_size<<std::endl;
-            	return pot_size;
-            }else{
-            	std::cout<<"Number is NOT prime: "<<pot_size<<std::endl;
-            	pot_size = rand() % pow(2,13);
-            }
-    }  
-}
-}
+extern int* insert_int(int item, int size, int* hash_table_loci)
+extern int delete(int item, int size, int* hash_table_loci)
+
 
 int main(){
-	long long int table_size = table_size();
-	std::cout<<"Number is : "<<table_size<<std::endl;
+	int table_size = 11;
+	int head = 1;
+	int* table_addr_head = &head;
+
+	int* addr_1 =  insert_int(head, table_size, table_addr_head)
+	int* addr_3 =  insert_int(3, table_size, table_addr_head)
+	int* addr_9 =  insert_int(9, table_size, table_addr_head)
+	int* addr_89 =  insert_int(89, table_size, table_addr_head) // expected collision at &1
+	
+	int deleted_elm =  delete(3, table_size, table_addr_head)
 
 }
