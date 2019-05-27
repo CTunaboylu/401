@@ -13,7 +13,7 @@ while:  SUB X30, X30, X3
 		B while
 
 put: STUR X0, [X2]
-	 BR LR
+	 BR X30
 
 .globl delete
 delete: // parameters x0:value, x1:head pointer
@@ -35,6 +35,6 @@ arrange: LDUR X11, [X2,#4] // next element addr, make it to next pointers value
 		 ADD X10, X30, X11
 		 STUR X30 [X2]
 		 STUR X30 [X2, #4]
-		 BR LR
+		 BR X30
 
 
