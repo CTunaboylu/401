@@ -4,7 +4,14 @@ extern int* hash(int item, int size)
 extern int* insert_int(int item, int size, int* hash_table_loci)
 extern int delete(int item, int size, int* hash_table_loci)
 
+struct Node {
+	int info;
+	Node* next;
 
+	Node(){}
+	Node(int i, Node* n):info(i), next(NULL){}
+
+};
 int main(){
 	int table_size = 11;
 	int head = 1;
