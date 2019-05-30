@@ -1,12 +1,12 @@
 
-.globl hash
+	.globl hash
 hash: //
 	// input: x0=dividend, x1=divisor
 	SDIV X2, X0, X1
 	MSUB X3, X2, X1, X0
 	BR X30
 	// result: x2=quotient, x3=remainder
-.globl insert_int
+	.globl insert
 insert: //location = (X3)hash(element) + i**2, args:{ int:(item:X0, hash_table starting address: X7)
 	SUB SP, SP, #8
 	STUR X30, [SP, #0]
@@ -47,8 +47,8 @@ resolve: // we need to know iteration count Gonnet and Baeza-Yates compare sever
 error:
 	ADD X9, X31, X31
 	SUB X9, X9, #1 // put minues one when resolution fails
-	BR LR 
-.globl delete
+	BR X30 
+	.globl delete
 delete: 
 		SUB SP, SP, #8
 		STUR X30, [SP, #0]
